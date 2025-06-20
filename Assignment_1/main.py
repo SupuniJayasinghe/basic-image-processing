@@ -21,6 +21,18 @@ def rotate_image(img, angle):
     return cv2.warpAffine(img, matrix, (w, h))
 
 
+# Function to perform blockwise averaging
+def blockwise_average(img, block_size):
+    img_out = img.copy()
+    h, w = img.shape
+    for y in range(0, h - block_size + 1, block_size):
+        for x in range(0, w - block_size + 1, block_size):
+            block = img[y : y + block_size, x : x + block_size]
+            avg = np.mean(block).astype(np.uint8)
+            img_out[y : y + block_size, x : x + block_size] = avg
+    return img_out
+
+
 if __name__ == "__main__":
     img = cv2.imread("../images/image_1.png", cv2.IMREAD_GRAYSCALE)
 
@@ -44,3 +56,11 @@ if __name__ == "__main__":
 
     cv2.imwrite("../outputs/rotated_45.jpg", rot45)
     cv2.imwrite("../outputs/rotated_90.jpg", rot90)
+
+    block3 = blockwise_average(img, 3)
+    block5 = blockwise_average(img, 5)
+    block7 = blockwise_average(img, 7)
+
+    cv2.imwrite("../outputs/blockwise_average_3.jpg", block3)
+    cv2.imwrite("../outputs/blockwise_average_5.jpg", block5)
+    cv2.imwrite("../outputs/blockwise_average_7.jpg", block7)
