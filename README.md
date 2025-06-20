@@ -1,9 +1,7 @@
 
 # Basic Image Processing
 
-This repository contains implementations of basic image processing operations using Python, OpenCV, and NumPy. These tasks were completed as part of the EC7212 – Computer Vision and Image Processing course.
-
----
+This repository contains implementations of basic image processing operations using Python, OpenCV, and NumPy.
 
 ## 🧠 Tasks Overview
 
@@ -41,7 +39,7 @@ All pixels within a block are replaced with the average intensity of the block, 
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/<your-username>/basic-image-processing.git
+git clone https://github.com/SupuniJayasinghe/basic-image-processing
 cd basic-image-processing
 ```
 
@@ -72,4 +70,3 @@ Check the `output/` folder for processed images.
 - NumPy
 - Matplotlib (optional visualization)
 
----
